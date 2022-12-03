@@ -1,6 +1,7 @@
 // Variables diseñadas para seleccionar las etiquetas, id o clases
 
 const h1 = document.querySelector('h1');
+const form = document.querySelector('#form');
 const pId = document.getElementById('pId');
 const pResultado = document.getElementById('resultado');
 const input1 = document.querySelector('#input-ejemplo1');
@@ -15,7 +16,10 @@ pId.append(img);
 
 img.setAttribute('style', 'height: 30vh');
 
-function btnCalcular() {
+form.addEventListener('submit', btnCalcular)
+
+function btnCalcular(event) {
+    event.preventDefault();
     let valorTotal = Number(input1.value) + Number(input2.value);
     pResultado.innerText = `La suma total de ${input1.value} y ${input2.value} da como resultado ${valorTotal}`;
 }
